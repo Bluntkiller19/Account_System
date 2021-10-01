@@ -9,6 +9,6 @@ public class AccountTypeController {
 
     @GetMapping("/all")
     public  GeneralResponse<String> getAll() {
-        return new GeneralResponse<String>(true, "No types found");
-    }
+            return new GeneralResponse<String>(true, "No types found");
+        }
 }
