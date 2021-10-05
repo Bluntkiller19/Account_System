@@ -21,6 +21,17 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <artifactId>spring-core</artifactId>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
