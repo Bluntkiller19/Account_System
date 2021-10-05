@@ -11,7 +11,7 @@ public class AccountType implements Serializable{
 
     private static final long serialVersionUID = 7773260792416717177L;
 
-    private long accountTypeId;
+    private Long accountTypeId;
     private String mnemonic;
     private String accountTypeName;
     private LocalDate creationDate;
@@ -21,7 +21,7 @@ public class AccountType implements Serializable{
     public AccountType() {
     }
 
-    public AccountType(long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
+    public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
         this.accountTypeId = accountTypeId;
         this.mnemonic = mnemonic;
         this.accountTypeName = accountTypeName;
@@ -32,7 +32,7 @@ public class AccountType implements Serializable{
     @SequenceGenerator(name = "GENERIC_SEQ", sequenceName = "C##CMPG.GENERIC_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
     @Column(name = "ACCOUNT_TYPE_ID")
-    public long getAccountTypeId() {
+    public Long getAccountTypeId() {
         return accountTypeId;
     }
 
@@ -55,7 +55,7 @@ public class AccountType implements Serializable{
     public Set<AccountTransaction> getAccountTransactions(){
         return AccountTransactions;
     }
-    public void setAccountTypeId(long accountTypeId) {
+    public void setAccountTypeId(Long accountTypeId) {
         this.accountTypeId = accountTypeId;
     }
 

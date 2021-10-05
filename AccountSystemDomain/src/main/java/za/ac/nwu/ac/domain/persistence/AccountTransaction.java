@@ -12,16 +12,16 @@ public class AccountTransaction implements Serializable {
 
     private static final long serialVersionUID = 4216023018920487099L;
 
-    private long transactionId;
+    private Long transactionId;
     private AccountType accountType;
-    private long memberId;
-    private long amount;
+    private Long memberId;
+    private Long amount;
     private LocalDate transactionDate;
 
     public AccountTransaction() {
     }
 
-    public AccountTransaction(long transactionId, AccountType accountType, long memberId, long amount, LocalDate transactionDate) {
+    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, LocalDate transactionDate) {
         this.transactionId = transactionId;
         this.accountType = accountType;
         this.memberId = memberId;
@@ -33,7 +33,7 @@ public class AccountTransaction implements Serializable {
     @SequenceGenerator(name = "GENERIC_SEQ", sequenceName = "C##CMPG.GENERIC_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
     @JoinColumn(name = "ACCOUNT_TX_ID")
-    public long getTransactionId() {
+    public Long getTransactionId() {
         return transactionId;
     }
 
@@ -44,12 +44,12 @@ public class AccountTransaction implements Serializable {
     }
 
     @Column(name = "MEMBER_ID")
-    public long getMemberId() {
+    public Long getMemberId() {
         return memberId;
     }
 
     @Column(name = "AMOUNT")
-    public long getAmount() {
+    public Long getAmount() {
         return amount;
     }
 
@@ -58,7 +58,7 @@ public class AccountTransaction implements Serializable {
         return transactionDate;
     }
 
-    public void setTransactionId(long transactionId) {
+    public void setTransactionId(Long transactionId) {
         this.transactionId = transactionId;
     }
 
@@ -66,11 +66,11 @@ public class AccountTransaction implements Serializable {
         this.accountType = accountType;
     }
 
-    public void setMemberId(long memberId) {
+    public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(Long amount) {
         this.amount = amount;
     }
 
