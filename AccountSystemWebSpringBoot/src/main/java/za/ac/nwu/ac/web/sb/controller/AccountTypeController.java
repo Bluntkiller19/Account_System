@@ -15,7 +15,6 @@ import za.ac.nwu.logic.flow.FetchAccountTypeFlow;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("Account-Type")
 public class AccountTypeController {

@@ -1,5 +1,7 @@
 package za.ac.nwu.ac.domain.dto;
 
+import za.ac.nwu.ac.domain.persistence.AccountType;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -11,6 +13,7 @@ public class AccountTypeDto implements Serializable {
     private  String mnemonic;
     private String accountTypeName;
     private LocalDate creationDate;
+    private AccountType accountType;
 
     public AccountTypeDto() {
     }
@@ -20,6 +23,14 @@ public class AccountTypeDto implements Serializable {
         this.accountTypeName = accountTypeName;
         this.creationDate = creationDate;
     }
+
+    public AccountTypeDto(AccountType accountType){
+        this.setAccountTypeName(accountType.getAccountTypeName());
+        this.setMnemonic(accountType.getMnemonic());
+        this.setCreationDate(accountType.getCreationDate());
+
+    }
+
 
     public String getMnemonic() {
         return mnemonic;
