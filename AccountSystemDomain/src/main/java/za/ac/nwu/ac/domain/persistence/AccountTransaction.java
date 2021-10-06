@@ -32,7 +32,7 @@ public class AccountTransaction implements Serializable {
     @Id
     @SequenceGenerator(name = "GENERIC_SEQ", sequenceName = "C##CMPG.GENERIC_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
-    @JoinColumn(name = "ACCOUNT_TX_ID")
+    @Column(name = "ACCOUNT_TX_ID")
     public Long getTransactionId() {
         return transactionId;
     }

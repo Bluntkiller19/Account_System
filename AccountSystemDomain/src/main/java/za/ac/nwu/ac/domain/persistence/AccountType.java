@@ -3,6 +3,7 @@ package za.ac.nwu.ac.domain.persistence;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -16,7 +17,7 @@ public class AccountType implements Serializable{
     private String accountTypeName;
     private LocalDate creationDate;
 
-    private Set<AccountTransaction> AccountTransactions;
+    private Set<AccountTransaction> accountTransactions;
 
     public AccountType() {
     }
@@ -53,8 +54,13 @@ public class AccountType implements Serializable{
 
     @OneToMany(targetEntity = AccountTransaction.class, fetch = FetchType.LAZY, mappedBy = "accountType", orphanRemoval = true, cascade = CascadeType.PERSIST)
     public Set<AccountTransaction> getAccountTransactions(){
-        return AccountTransactions;
+        return accountTransactions;
     }
+
+    public void setAccountTransactions(Set<AccountTransaction> accountTransactions) {
+        this.accountTransactions = accountTransactions;
+    }
+
     public void setAccountTypeId(Long accountTypeId) {
         this.accountTypeId = accountTypeId;
     }
@@ -71,4 +77,27 @@ public class AccountType implements Serializable{
         this.creationDate = creationDate;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountType that = (AccountType) o;
+        return Objects.equals(accountTypeId, that.accountTypeId) && Objects.equals(mnemonic, that.mnemonic) && Objects.equals(accountTypeName, that.accountTypeName) && Objects.equals(creationDate, that.creationDate) && Objects.equals(accountTransactions, that.accountTransactions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accountTypeId, mnemonic, accountTypeName, creationDate, accountTransactions);
+    }
+
+    @Override
+    public String toString() {
+        return "AccountType{" +
+                "accountTypeId=" + accountTypeId +
+                ", mnemonic='" + mnemonic + '\'' +
+                ", accountTypeName='" + accountTypeName + '\'' +
+                ", creationDate=" + creationDate +
+                ", AccountTransactions=" + accountTransactions +
+                '}';
+    }
 }
