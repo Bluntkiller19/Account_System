@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "ACCOUNT_TYPE", schema = "C##CMPG")
+@Table(name = "ACCOUNT_TYPE", schema = "C##NEW")
 public class AccountType implements Serializable{
 
     private static final long serialVersionUID = 7773260792416717177L;
@@ -29,9 +29,15 @@ public class AccountType implements Serializable{
         this.creationDate = creationDate;
     }
 
+    public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
+        this.mnemonic =  mnemonic;
+        this.accountTypeName = accountTypeName;
+        this.creationDate = creationDate;
+    }
+
     @Id
-    @SequenceGenerator(name = "GENERIC_SEQ", sequenceName = "C##CMPG.GENERIC_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
+    @SequenceGenerator(name = "ACCOUNT_TYPE_SEQ", sequenceName = "C##NEW.ACCOUNT_TYPE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_TYPE_SEQ")
     @Column(name = "ACCOUNT_TYPE_ID")
     public Long getAccountTypeId() {
         return accountTypeId;

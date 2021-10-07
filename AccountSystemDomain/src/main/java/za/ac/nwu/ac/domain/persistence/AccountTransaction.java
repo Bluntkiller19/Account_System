@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ACCOUNT_TYPE", schema = "C##CMPG")
+@Table(name = "ACCOUNT_TYPE", schema = "C##NEW")
 public class AccountTransaction implements Serializable {
 
     private static final long serialVersionUID = 4216023018920487099L;
@@ -30,8 +30,8 @@ public class AccountTransaction implements Serializable {
     }
 
     @Id
-    @SequenceGenerator(name = "GENERIC_SEQ", sequenceName = "C##CMPG.GENERIC_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERIC_SEQ")
+    @SequenceGenerator(name = "ACCOUNT_TX_SEQ", sequenceName = "C##NEW.ACCOUNT_TX_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_TX_SEQ")
     @Column(name = "ACCOUNT_TX_ID")
     public Long getTransactionId() {
         return transactionId;

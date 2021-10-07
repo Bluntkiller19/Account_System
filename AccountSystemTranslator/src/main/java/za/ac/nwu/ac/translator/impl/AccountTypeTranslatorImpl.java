@@ -1,7 +1,9 @@
 package za.ac.nwu.ac.translator.impl;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.repo.persistence.AccountTypeRepository;
@@ -33,6 +35,16 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
         }
 
         return accountTypeDtos;
+    }
+
+    @Override
+    public AccountTypeDto create(AccountTypeDto accountTypeDto){
+        try {
+            AccountType accountType = accountTypeRepository.save(accountTypeDto.getAccountType());
+            return new AccountTypeDto(accountType);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to save to DB",e);
+        }
 
     }
 }

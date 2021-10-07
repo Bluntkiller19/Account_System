@@ -6,9 +6,11 @@ import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.translator.AccountTypeTranslator;
 import za.ac.nwu.logic.flow.FetchAccountTypeFlow;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 @Component
