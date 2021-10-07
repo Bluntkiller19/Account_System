@@ -45,6 +45,15 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
         }catch (Exception e){
             throw new RuntimeException("Unable to save to DB",e);
         }
+    }
 
+    @Override
+    public AccountTypeDto getAccountTypeByMnemonicNativeQuery(String mnemonic){
+        try {
+            AccountType accountType = accountTypeRepository.getAccountTypeByMnemonicNativeQuery(mnemonic);
+            return new AccountTypeDto(accountType);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from DB", e);
+        }
     }
 }
