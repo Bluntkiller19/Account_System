@@ -21,6 +21,9 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+
+        <springfox-swagger.version>2.9.2</springfox-swagger.version>
+        <swagger.version>1.5.20</swagger.version>
     </properties>
 
     <modules>
@@ -49,7 +52,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
-                <version>3.0.0</version>
+                <version>${springfox-swagger.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>com.fasterxml.jackson.annotation</groupId>
@@ -64,23 +67,28 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <dependency>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-annotations</artifactId>
-                <version>1.6.3</version>
+                <version>${swagger.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
-                <version>3.0.0</version>
+                <version>${springfox-swagger.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-bean-validators</artifactId>
-                <version>3.0.0</version>
+                <version>${springfox-swagger.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.slf4j</groupId>
                         <artifactId>slf4j-api</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle.database.jdbc</groupId>
+                <artifactId>ojdbc8</artifactId>
+                <version>19.3.0.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
