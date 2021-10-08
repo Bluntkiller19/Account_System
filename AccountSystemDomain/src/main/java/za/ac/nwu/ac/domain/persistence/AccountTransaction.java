@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ACCOUNT_TYPE", schema = "C##NEW")
+@Table(name = "ACCOUNT_TX", schema = "C##NEW")
 public class AccountTransaction implements Serializable {
 
     private static final long serialVersionUID = 4216023018920487099L;
@@ -18,8 +18,6 @@ public class AccountTransaction implements Serializable {
     private Long amount;
     private LocalDate transactionDate;
 
-    public AccountTransaction() {
-    }
 
     public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, LocalDate transactionDate) {
         this.transactionId = transactionId;
@@ -27,6 +25,13 @@ public class AccountTransaction implements Serializable {
         this.memberId = memberId;
         this.amount = amount;
         this.transactionDate = transactionDate;
+    }
+    public AccountTransaction(AccountType accountTypeId, Long memberId, Long amount, LocalDate txDate) {
+
+    }
+
+    public AccountTransaction() {
+
     }
 
     @Id
@@ -57,6 +62,8 @@ public class AccountTransaction implements Serializable {
     public LocalDate getTransactionDate() {
         return transactionDate;
     }
+
+
 
     public void setTransactionId(Long transactionId) {
         this.transactionId = transactionId;
