@@ -15,7 +15,8 @@ public class AccountTypeDto implements Serializable {
 
     private static final long serialVersionUID = -7731154715176897719L;
 
-    private  String MNEMONIC;
+    private Long ACCOUNT_TYPE_ID;
+    private String MNEMONIC;
     private String ACCOUNT_TYPE_NAME;
     private LocalDate CREATION_DATE;
 
@@ -29,12 +30,28 @@ public class AccountTypeDto implements Serializable {
     }*/
 
     public AccountTypeDto(AccountType accountType){
+        this.setAccountTypeID(accountType.getAccountTypeId());
         this.setAccountTypeName(accountType.getAccountTypeName());
         this.setMnemonic(accountType.getMnemonic());
         this.setCreationDate(accountType.getCreationDate());
     }
 
     @ApiModelProperty(position = 1,
+            value = "AccountType ID",
+            name = "ID",
+            notes = "Uniquely identify the account type by Id",
+            dataType = "java.lang.String",
+            example = "100689",
+            required = true)
+    public Long getAccountTypeID() {
+        return ACCOUNT_TYPE_ID;
+    }
+
+    public void setAccountTypeID(Long ACCOUNT_TYPE_ID) {
+        this.ACCOUNT_TYPE_ID = ACCOUNT_TYPE_ID;
+    }
+
+    @ApiModelProperty(position = 2,
     value = "AccountType Mnemonic",
     name = "mnemonic",
     notes = "Uniquely identify the account type",
@@ -48,7 +65,7 @@ public class AccountTypeDto implements Serializable {
         this.MNEMONIC = MNEMONIC;
     }
 
-    @ApiModelProperty(position = 2,
+    @ApiModelProperty(position = 3,
             value = "AccountType accountTypeName",
             name = "accountTypeName",
             notes = "AccountType Name",
@@ -63,7 +80,7 @@ public class AccountTypeDto implements Serializable {
         this.ACCOUNT_TYPE_NAME = ACCOUNT_TYPE_NAME;
     }
 
-    @ApiModelProperty(position = 3,
+    @ApiModelProperty(position = 4,
             value = "AccountType creationDate",
             name = "creationDate",
             notes = "Creation Date of the account",
@@ -88,7 +105,7 @@ public class AccountTypeDto implements Serializable {
 
    @JsonIgnore
     public AccountType getAccountType(){
-        return new AccountType(getMnemonic(), getAccountTypeName(), getCreationDate());
+        return new AccountType(getAccountTypeID(), getMnemonic(), getAccountTypeName(), getCreationDate());
     }
 
     @Override

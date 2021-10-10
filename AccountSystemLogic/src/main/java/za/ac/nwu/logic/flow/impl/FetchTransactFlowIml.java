@@ -1,5 +1,6 @@
 package za.ac.nwu.logic.flow.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.TransactionDto;
 import za.ac.nwu.ac.translator.TransactTranslator;
@@ -12,6 +13,7 @@ public class FetchTransactFlowIml implements FetchTransactFlow {
 
     private final TransactTranslator translator;
 
+    @Autowired
     public FetchTransactFlowIml(TransactTranslator translator) {
         this.translator = translator;
     }

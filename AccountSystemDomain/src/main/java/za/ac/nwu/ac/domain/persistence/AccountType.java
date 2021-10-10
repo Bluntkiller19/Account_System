@@ -19,7 +19,7 @@ public class AccountType implements Serializable{
 
     private Set<AccountTransaction> accountTransactions;
 
-    public AccountType(AccountType accountTypeId, int memberId, int amount, LocalDate txDate) {
+    /*public AccountType(AccountType accountTypeId, int memberId, int amount, LocalDate txDate) {
     }
 
     public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate, AccountTransaction transaction) {
@@ -27,16 +27,16 @@ public class AccountType implements Serializable{
         this.mnemonic = mnemonic;
         this.accountTypeName = accountTypeName;
         this.creationDate = creationDate;
-    }
+    }*/
 
-    public AccountType(String mnemonic, String accountTypeName, LocalDate creationDate) {
+    public AccountType(Long accountTypeId,String mnemonic, String accountTypeName, LocalDate creationDate) {
+        this.accountTypeId = accountTypeId;
         this.mnemonic =  mnemonic;
         this.accountTypeName = accountTypeName;
         this.creationDate = creationDate;
     }
 
     public AccountType() {
-
     }
 
     @Id
@@ -107,7 +107,8 @@ public class AccountType implements Serializable{
                 ", mnemonic='" + mnemonic + '\'' +
                 ", accountTypeName='" + accountTypeName + '\'' +
                 ", creationDate=" + creationDate +
-                ", AccountTransactions=" + accountTransactions +
+                ", accountTransactions=" + accountTransactions +
                 '}';
     }
 }
+

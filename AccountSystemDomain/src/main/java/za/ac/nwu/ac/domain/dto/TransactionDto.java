@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ac.domain.persistence.AccountTransaction;
-import za.ac.nwu.ac.domain.persistence.AccountType;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -25,19 +24,19 @@ public class TransactionDto implements Serializable {
     }
 
     public TransactionDto(AccountTransaction accountTransaction) {
-        this.setAccountTypeId(accountTransaction.getAccountType().getAccountTypeId());
-        this.setMemberId(accountTransaction.getMemberId());
-        this.setAmount(accountTransaction.getAmount());
-        this.setTxDate(accountTransaction.getTransactionDate());
+        this.ACCOUNT_TYPE_ID = accountTransaction.getAccountType().getAccountTypeId();
+        this.MEMBER_ID = accountTransaction.getMemberId();
+        this.AMOUNT = accountTransaction.getAmount();
+        this.TX_DATE = accountTransaction.getTransactionDate();
     }
 
 
-    public TransactionDto(Long ACCOUNT_TYPE_ID, Long MEMBER_ID, Long AMOUNT, LocalDate TX_DATE) {
+    /*public TransactionDto(Long ACCOUNT_TYPE_ID, Long MEMBER_ID, Long AMOUNT, LocalDate TX_DATE) {
         this.ACCOUNT_TYPE_ID = ACCOUNT_TYPE_ID;
         this.MEMBER_ID = MEMBER_ID;
         this.AMOUNT = AMOUNT;
         this.TX_DATE = TX_DATE;
-    }
+    }*/
 
     @ApiModelProperty(position = 1,
             value = "Transaction ID",
