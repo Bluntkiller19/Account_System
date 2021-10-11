@@ -32,4 +32,8 @@ public class FetchAccountTypesFlowImpl implements FetchAccountTypeFlow {
     public AccountTypeDto getAccountTypeByMnemonic(String mnemonic){
         return accountTypeTranslator.getAccountTypeByMnemonic(mnemonic);
     }
+
+    public boolean methodTest(){
+        return true;
+    }
 }
